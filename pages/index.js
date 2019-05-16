@@ -1,7 +1,8 @@
 import { Component, Fragment } from "react";
+import Error from "next/error";
 import fetch from "node-fetch";
 
-import Error from "next/error";
+import StoryList from "../components/StoryList";
 
 class Index extends Component {
 	static async getInitialProps() {
@@ -27,11 +28,7 @@ class Index extends Component {
 		return (
 			<Fragment>
 				<div>Hacker Next</div>
-				<div>
-					{stories.map(story => (
-						<h2 key={story.id}>{story.title}</h2>
-					))}
-				</div>
+				<StoryList stories={stories} />
 			</Fragment>
 		);
 	}
