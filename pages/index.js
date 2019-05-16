@@ -2,6 +2,7 @@ import { Component, Fragment } from "react";
 import Error from "next/error";
 import fetch from "node-fetch";
 
+import Layout from "../components/Layout";
 import StoryList from "../components/StoryList";
 
 class Index extends Component {
@@ -26,10 +27,12 @@ class Index extends Component {
 			return <Error statusCode={503} />;
 		}
 		return (
-			<Fragment>
-				<div>Hacker Next</div>
+			<Layout
+				title="Hacker Next"
+				description="A Hacker News clone made with Next.js"
+			>
 				<StoryList stories={stories} />
-			</Fragment>
+			</Layout>
 		);
 	}
 }
